@@ -1,0 +1,26 @@
+# Virtual environment
+ideas/
+venv/
+.venv/
+env/
+
+# Python caching
+__pycache__/
+*.py[cod]
+*$py.class
+
+# IDE and OS files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# MLflow run tracking folder
+mlruns/
+
+# Local ML model/scaler files
+models/*.pkl
+models/*.joblib
