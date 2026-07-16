@@ -10,3 +10,4 @@ pydantic
 streamlit
 matplotlib
 seaborn
+requests
