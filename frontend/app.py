@@ -16,7 +16,7 @@ st.set_page_config(
     layout="wide",
     initial_sidebar_state="expanded"
 )
-
+BACKEND_URL = "https://employee-attrition-prediction-aabn.onrender.com"
 # Deep dark mode and glassmorphism styling
 st.markdown("""
 <style>
@@ -219,7 +219,8 @@ with col_display:
     
     try:
         # Call Backend REST API
-        api_url = "http://localhost:8000/predict"
+        # api_url = "http://localhost:8000/predict"
+        api_url = f"{BACKEND_URL}/predict"
         response = requests.post(api_url, json=payload, timeout=2)
         if response.status_code == 200:
             result = response.json()
@@ -295,7 +296,8 @@ st.sidebar.markdown("---")
 
 # Service status indicators
 try:
-    health_resp = requests.get("http://localhost:8000/health", timeout=1).json()
+    # health_resp = requests.get("http://localhost:8000/health", timeout=1).json()
+    health_resp = requests.get(f"{BACKEND_URL}/health", timeout=5).json()
     api_status = "🟢 Online" if health_resp.get("status") == "healthy" else "🟡 Missing Models"
 except Exception:
     api_status = "🔴 Offline"
