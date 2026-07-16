@@ -12,12 +12,15 @@ app = FastAPI(
 # Enable CORS for frontend integration
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=[
+        "https://employee-attrition-prediction0.streamlit.app",
+        "http://localhost:8501",
+        "http://localhost:8500"
+    ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
-
 # Global inference engine instance
 try:
     engine = InferenceEngine()
