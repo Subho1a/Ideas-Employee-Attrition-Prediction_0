@@ -3,7 +3,11 @@
 This project contains an end-to-end Machine Learning pipeline to predict employee attrition risk, using the IBM HR Analytics Employee Attrition dataset. It includes data preprocessing, class imbalance handling (SMOTE), hyperparameter-tuned model training, a **FastAPI** backend REST API, and a premium **Streamlit** dashboard frontend.
 
 ---
-
+![Python](https://img.shields.io/badge/Python-3.10-blue)
+![FastAPI](https://img.shields.io/badge/FastAPI-Backend-green)
+![Streamlit](https://img.shields.io/badge/Streamlit-Frontend-red)
+![Scikit-Learn](https://img.shields.io/badge/Scikit--Learn-ML-orange)
+![License](https://img.shields.io/badge/License-MIT-yellow)
 ## Project Structure
 
 ```
@@ -28,44 +32,51 @@ ideas-eap/
 │   └── app.py                                        # Premium Streamlit web app
 ├── .gitignore                                        # Standard git ignore definitions
 ├── requirements.txt                                  # Dependency declarations
-└── run.py                                            # Central script execution manager
+
 ```
+---
+
+## 🚀 Live Demo
+
+### 🌐 Streamlit Frontend
+https://employee-attrition-prediction0.streamlit.app/
+
+### ⚡ FastAPI Backend
+https://employee-attrition-prediction-aabn.onrender.com/
+
+### 📖 API Documentation
+https://employee-attrition-prediction-aabn.onrender.com/docs
 
 ---
 
-## Setup & Running the Services
-
-The project uses the `ideas` virtual environment. A centralized wrapper script `run.py` is provided in the project root to run any step using the correct environment.
-
-### 1. Train the Models
-Run the training pipeline. This will load the raw data, build and fit the preprocessor pipeline, apply SMOTE to balance classes, run training for Tuned Logistic Regression, Tuned XGBoost, and Random Forest, compare performance, and save the best model assets locally under `models/`.
-```bash
-python run.py train
-```
-
-### 2. Start the FastAPI Backend
-Start the backend web server to expose inference API endpoints:
-```bash
-python run.py backend
-```
-The REST API will be available at **`http://localhost:8000`**. You can access interactive Swagger documentation and test the endpoints at **`http://localhost:8000/docs`**.
-
-### 3. Launch the Streamlit Frontend
-Launch the human resources dashboard:
-```bash
-python run.py frontend
-```
-The dashboard will open automatically in your browser at **`http://localhost:8501`**.
-
-> **Note on Fallback Mode**: The Streamlit frontend has an automatic API fallback. If the FastAPI backend is offline, it will import the inference code directly and run predictions locally.
+## Setup & Running the Services for local
 
 ---
 
-## Model Details & Preprocessing
+## ⚙️ Installation
 
-* **Target Variable**: `Attrition` (encoded as `Yes` -> 1, `No` -> 0).
-* **Excluded Columns**: Constant features (`EmployeeCount`, `StandardHours`, `Over18`) and identifiers (`EmployeeNumber`) are dropped.
-* **Categorical Encoding**: One-Hot Encoding with `drop='first'` to prevent multi-collinearity.
-* **Numerical Scaling**: Standard scaling applied to all numeric and ordinal rating features.
-* **Imbalance Treatment**: SMOTE (Synthetic Minority Over-sampling Technique) is applied only to the training split.
-* **Primary Evaluated Model**: Tuned Logistic Regression (selected as the best model due to its high F1-Score of `0.50` and Recall of `0.70` for the minority class in the test split).
+Clone the repository
+
+```bash
+git clone https://github.com/Subho1a/Ideas-Employee-Attrition-Prediction_0
+```
+
+Install dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+Run FastAPI
+
+```bash
+uvicorn backend.main:app --reload
+```
+
+Run Streamlit
+
+```bash
+streamlit run frontend/app.py
+```
+
+---
