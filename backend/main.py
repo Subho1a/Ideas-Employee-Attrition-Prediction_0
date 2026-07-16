@@ -15,7 +15,6 @@ app.add_middleware(
     allow_origins=[
         "https://employee-attrition-prediction0.streamlit.app",
         "http://localhost:8501",
-        "http://localhost:8500"
     ],
     allow_credentials=True,
     allow_methods=["*"],

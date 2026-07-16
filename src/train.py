@@ -1,4 +1,7 @@
 import os
+import sys
+from pathlib import Path
+
 import pandas as pd
 import numpy as np
 from sklearn.model_selection import train_test_split
@@ -8,6 +11,11 @@ from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_sc
 import xgboost as xgb
 from imblearn.over_sampling import SMOTE
 import joblib
+
+PROJECT_ROOT = Path(__file__).resolve().parent.parent
+if str(PROJECT_ROOT) not in sys.path:
+    sys.path.insert(0, str(PROJECT_ROOT))
+
 from src import config
 from src import preprocessing
 
