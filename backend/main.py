@@ -27,21 +27,19 @@ except Exception:
     engine = None
 
 
-@app.get("/")
+@app.get("/", tags=["Home"])
 def home():
     return {
-        "message": "Welcome to the Employee Attrition Prediction API",
+        "application": "Employee Attrition Prediction System",
+        "description": "Machine Learning REST API for predicting employee attrition risk.",
         "version": "1.0.0",
-        "status": "running",
-        "endpoints": {
-            "home": "/",
-            "health": "/health",
-            "predict": "/predict",
-            "docs": "/docs",
-            "redoc": "/redoc"
-        }
+        "framework": "FastAPI",
+        "deployment": "Render",
+        "status": "🟢 Online",
+        "api_documentation": "/docs",
+        "health_check": "/health",
+        "prediction_endpoint": "/predict"
     }
-
 
 @app.get("/health", status_code=status.HTTP_200_OK)
 def health_check():
