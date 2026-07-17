@@ -3,7 +3,7 @@ numpy==1.26.4
 scikit-learn==1.4.2
 xgboost==2.0.3
 imbalanced-learn==0.12.3
-joblib==1.4.1
+joblib==1.4.2
 fastapi==0.111.0
 uvicorn==0.30.0
 pydantic==2.8.2
