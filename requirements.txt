@@ -11,3 +11,7 @@ streamlit
 matplotlib
 seaborn
 requests
+tensorflow
+keras
+torch
+torchvision
